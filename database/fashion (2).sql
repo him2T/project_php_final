@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 24, 2024 lúc 10:56 AM
+-- Thời gian đã tạo: Th9 27, 2024 lúc 07:01 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -98,9 +98,10 @@ CREATE TABLE `tbl_client` (
 --
 
 INSERT INTO `tbl_client` (`id`, `fname`, `lname`, `sex`, `address`, `email`, `phone`, `user`, `password`, `ban`) VALUES
-(32, 'Cuong', 'Nguyen', 2, 'KTX NAM', 'cuong@gmail.com', '0342888525', 'usertest', '123', 0),
-(39, 'Teo', 'Nguyen', 1, 'KTX', 'teo@gmail.com', '0342999626', 'userteo', '123123', 0),
-(40, 'Lam', 'Nguyen', 2, 'KTX', 'nvc196011@gmail.com', '+84342888525', 'usercuong', '1234', 0);
+(32, 'Cuong', 'Nguyen', 2, 'KTX NAM', 'cuong@gmail.com', '0342888525', 'usertest', '202cb962ac59075b964b07152d234b70', 0),
+(39, 'Teo', 'Nguyen', 1, 'KTX', 'teo@gmail.com', '0342999626', 'userteo', '4297f44b13955235245b2497399d7a93', 0),
+(40, 'Lam', 'Nguyen', 2, 'KTX', 'nvc196011@gmail.com', '+84342888525', 'usercuong', '81dc9bdb52d04dc20036dbd8313ed055', 0),
+(41, 'Tèo', 'Nguyễn Văn', 1, 'PC_BD', 'nguyenteo@gmail.com', '0981581135', 'nguyenteo', '4297f44b13955235245b2497399d7a93', 0);
 
 -- --------------------------------------------------------
 
@@ -211,7 +212,7 @@ CREATE TABLE `tbl_user` (
   `address_us` varchar(100) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `user` varchar(20) NOT NULL,
-  `password_us` varchar(20) NOT NULL,
+  `password_us` varchar(100) NOT NULL,
   `role_us` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -220,10 +221,10 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name_us`, `address_us`, `email`, `user`, `password_us`, `role_us`) VALUES
-(1, 'Cuong', 'KTX NAM', 'cuong@gmal.com', 'admincuong', '123123', 1),
-(2, 'Admin', 'Bình Dương', 'admin@gmail.com', 'adminadmin', '123123', 1),
-(9, 'Hoà', 'ktxkhuA', '20521331@gmail.com', 'adminhoa', '123123', 1),
-(10, 'Lâm', 'Củ Chi', '20521515@gm.uit.edu.vn', 'adminlam', '123123', 1);
+(1, 'Cuong', 'KTX NAM', 'cuong@gmal.com', 'admincuong', '4297f44b13955235245b2497399d7a93', 1),
+(2, 'Admin', 'Bình Dương', 'admin@gmail.com', 'adminadmin', '4297f44b13955235245b2497399d7a93', 1),
+(9, 'Hoà', 'ktxkhuA', '20521331@gmail.com', 'adminhoa', '4297f44b13955235245b2497399d7a93', 1),
+(10, 'Lâm', 'Củ Chi', '20521515@gm.uit.edu.vn', 'adminlam', '4297f44b13955235245b2497399d7a93', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -298,7 +299,7 @@ ALTER TABLE `tbl_catalog`
 -- AUTO_INCREMENT cho bảng `tbl_client`
 --
 ALTER TABLE `tbl_client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_order`
