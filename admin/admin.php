@@ -53,6 +53,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
               $phone = $_POST['phone_c'];
               $user = $_POST["user_c"];
               $password = $_POST['password_c'];
+              $encodePass = md5($password);
               //flag check null
 
               // echo var_dump($_POST);
@@ -69,7 +70,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
                 echo '</script>';
                 break;
               } else {
-                insert_client($lname, $fname, $sex, $email, $phone, $user, $password, $address);
+                insert_client($lname, $fname, $sex, $email, $phone, $user, $encodePass, $address);
                 $kq = getall_client();
                 include("client.php");
                 echo '<script type="text/javascript">';
@@ -85,7 +86,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
       case 'updateform_client': {
           if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $result = getoneClient($id);
+            $result = getoneClient($id); 
             include("update_client_form.php");
           }
           if (isset($_POST['id'])) {
@@ -99,7 +100,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
             $user = $_POST["user_c"];
             $ban = $_POST["ban_c"];
             $password = $_POST['password_c'];
-            update_client($id, $lname, $fname, $sex, $email, $phone, $user, $password, $address, $ban);
+            $encodePassword = md5($password);
+            update_client($id, $lname, $fname, $sex, $email, $phone, $user, $encodePassword, $address, $ban);
             $kq = getall_client();
             include("client.php");
             echo '<script type="text/javascript">';

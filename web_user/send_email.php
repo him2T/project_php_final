@@ -11,7 +11,8 @@ if (isset($_POST['email'])) {
     //connect update account in database 
     include "../model_user/connectdb_user.php";
     include "../model_user/clientdb_user.php";
-    update_password_user($email, $password);
+    $encode_password = md5($password);
+    update_password_user($email, $encode_password);
 
     //Load Composer's autoloader
     require '../vendor/autoload.php';
@@ -33,7 +34,7 @@ if (isset($_POST['email'])) {
 
     $mail->isHTML(true);
     $mail->Subject = 'CAP MAT KHAU MOI';
-    $mail->Body    = 'Mật khẩu mới của bạn là : ' . $password . '.Vui lòng thay đổi mật khẩu sau khi đăng nhập vào hệ thống.';
+    $mail->Body    = 'Mật khẩu mới của bạn là : <i><b>' . $password . '</b></i> .Vui lòng thay đổi mật khẩu sau khi đăng nhập vào hệ thống.';
 
     if (!$mail->send()) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;

@@ -52,7 +52,7 @@ if (isset($_GET['act'])) {
           $pass = $_POST['password'];
           $ban = 1;
           $kq_ban = get_userban($user, $ban);
-          $kq_user = get_user($user, $pass);
+          $kq_user = get_user($user, md5($pass));
 
           // var_dump($kq);
           // echo $kq;
@@ -287,6 +287,7 @@ if (isset($_GET['act'])) {
               header('location: register.php?act=miss');
               break;
             } else {
+              $password = md5($password);
               insert_client_user($lname, $fname, $sex, $email, $phone, $userr, $password, $address);
               header('location: fashionApp.php?act=login_sc');
               break;

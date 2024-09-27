@@ -70,10 +70,7 @@
 
                             </table>
                             <div>
-                                <!-- <button class="button-delete"><a class="change-a"
-                                        href="admin.php?act=del_client&id='.$client['id'].'">Delete</a></button> -->
-
-                                <!-- <button  class="button-insert"><a class="change-a" href="admin.php?act=insert_client&id='1'">Insert</a></button> -->
+                                <button  class="button-insert"><a class="change-a" href="admin.php?act=insert_client&id='1'">Insert</a></button>
                             </div>
                         </div>
                         <!-- END DATATABLE -->
